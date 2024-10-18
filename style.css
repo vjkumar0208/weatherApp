@@ -1,0 +1,283 @@
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Merriweather Sans',sans-serif;
+}
+:root{
+    --colorDark1: #112D4E;
+    --colorDark2: #3F72AF;
+    --colorLight1: #DBE2EF;
+    --colorLight2: #F9F7F7;
+}
+.wrapper{
+    color: var(--colorLight2);
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(160deg, #112d4e 0%, #3f72af 100%);;
+}
+h1{
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px;
+}
+.tab-container{
+    display: flex;
+    justify-content: space-between;
+    max-width:550px ;
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 4rem;    
+}
+.tab{
+    cursor: pointer;
+    font-size: 0.875rem;
+    letter-spacing: 1.75px;
+    padding: 5px 8px;
+}
+.tab.current-tab{
+    background-color: rgba(219, 226, 239, 0.5);
+    border-radius: 4px;
+}
+.weather-container{
+    margin-block: 2rem;
+}
+.btn{
+    all: unset;     /*by default properties ko hata deta hai (we can do this by apperance properties with border none)*/
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    background-color: var(--colorDark2);
+    cursor: pointer;
+    padding: 10px 30px;
+}
+.sub-container{
+    display: flex;      
+    flex-direction: column;
+    align-items: center;
+}
+.grant-location-access{
+     display: none;     /* grant wala page hide ho jayega */
+}
+.grant-location-access.active{
+    display: flex;      /*jab hide nhi hoga tab flex ho jayega*/
+    flex-direction: column;
+    align-items: center;
+}
+.grant-location-access img{
+    margin-bottom: 2rem;
+}
+.grant-location-access p:first-of-type{     /*p type ka first child*/
+    font-size: 1.75rem;
+    font-weight: 600; 
+}
+
+.grant-location-access p:last-of-type{          /*p type ka last child*/
+    font-size:0.85rem;
+    font-weight: 500;
+    margin-top: 0.75rem;
+    margin-bottom: 1.75rem;
+    letter-spacing: 0.75px;
+}
+
+.loading-container{
+    display: none;
+}
+.loading-container.active{
+    display: flex;
+    
+}
+.loading-container p{
+    text-transform: uppercase;
+}
+.user-info-container{
+    display: none;
+}
+.user-info-container.active{
+    display: flex;
+}
+.name{
+    display: flex;
+    align-items: center;
+    gap: 0 0.5rem;
+    margin-bottom: 1rem;
+}
+.user-info-container p{
+    font-size: 1rem;
+    font-weight: 200;
+}
+.user-info-container img{
+    width: 70px;
+    height: 70px;
+}
+.name p{
+    font-size: 2rem;
+}
+.name img{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+.user-info-container p[data-temp]{
+    font-size:2.75rem ;
+    font-weight: 700;
+}
+.parameter-container{
+    display: flex;
+    gap: 10px 20px;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+.parameter{
+    width: 30%;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(219, 226, 239, 0.5);
+    border-radius: 5px;
+    gap: 5px 0;
+    padding: 1rem;
+}
+.parameter img{
+    width: 60px;
+    height: 60px;
+}
+.parameter p:first-of-type{
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.form-container{
+    display: none;
+    width: 90%;
+    max-width: 550px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    gap: 0 10px;
+    margin-bottom: 3rem;
+}
+.form-container.active{
+    display: flex;
+}
+.form-container input{
+    width: calc(100% - 80px);
+    height: 40px;
+    padding: 0 20px;
+    background-color: rgba(219, 226, 239, 0.5);
+    border-radius: 10px;
+}
+.form-container input::placeholder{
+    color: white;
+}
+.form-container input:focus{
+    outline: 3px solid rgba(255, 255, 255, 0.7);
+}
+
+.form-container .btn {
+    padding:unset;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    margin-bottom:1px;
+}
+
+/* Error message styling */
+.error-message {
+    display: none;
+    color: rgb(3, 14, 46);
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 10px auto;
+}
+
+.error-message.active {
+    display: block;
+}
+
+/* Media Query for screens smaller than 450px */
+@media (max-width: 450px) {
+    h1 {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+
+    .tab-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    .tab {
+        font-size: 0.75rem;
+        padding: 8px 12px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .weather-container {
+        margin-block: 1rem;
+    }
+
+    .grant-location-access img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .grant-location-access p:first-of-type {
+        font-size: 1.5rem;
+    }
+
+    .grant-location-access p:last-of-type {
+        font-size: 0.75rem;
+        margin-top: 0.5rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .form-container {
+        gap: 10px 20x;
+        margin-bottom: 2rem;
+    }
+
+    .form-container input {
+        width: 90%;
+        height: 35px;
+        padding: 0 15px;
+    }
+
+    .form-container .btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .user-info-container p[data-temp] {
+        font-size: 2rem;
+    }
+
+    .parameter-container {
+        flex-direction: column;
+        gap: 10px 0;
+        margin-top: 1rem;
+    }
+
+    .parameter {
+        width: 80%;
+        max-width: 100%;
+        padding: 0.75rem;
+    }
+
+    .parameter img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .parameter p {
+        font-size: 1rem;
+    }
+}
